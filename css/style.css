@@ -1,0 +1,162 @@
+/*css样式*/
+/*定义web字体*/
+@font-face{
+	font-family: "raphaelicons-webfont"; /*字体名称*/
+	/*字体路径*/
+	src:url('fonts/raphaelicons-webfont.eot') format('eot'),
+		url('fonts/raphaelicons-webfont.svg') format('eot'),
+		url('fonts/raphaelicons-webfont.ttf') format('ttf'),
+		url('fonts/raphaelicons-webfont.woff') format('woff');
+}
+
+body{font-family:arial,serif,'微软雅黑';font-weight: 400;font-size: 16px;background: #EAE1E1;
+	overflow: hidden;color: black;-webkit-font-smoothing:subpixel-antialiased;}
+/*css3里的反锯齿 font-smoothing:subpixel-antialiased;*/
+
+a{text-decoration: none;color: #555}
+.clear{zoom: 1;}
+.clear:after{content: 0;display: block;clear: both;}
+.warp{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+/*nav开始*/
+
+/*> 子代选择器，只会选择父级的子代*/
+.warp > input,.warp > a{width: 20%;height: 40px;line-height: 40px;position: fixed;top: 0;border-right: 1px solid #64A6F3;cursor: pointer;}
+/*提高input的优先级*/
+.warp > input{opacity: 0;filter: alpha(opacity:0);z-index: 999;}
+.warp > a{z-index: 10;color: #64A6F3;text-align:center;background: #BECEEA;font-weight: 700;font-size: 20px;text-shadow: 2px 2px 5px #9DA1C3}
+/* +选择器 选择紧接在在nav1后边的a*/
+#nav1,#nav1 + a{left: 0%;}
+#nav2,#nav2 + a{left: 20%;}
+#nav3,#nav3 + a{left: 40%;}
+#nav4,#nav4 + a{left: 60%;}
+#nav5,#nav5 + a{left: 80%;}
+/*css3里的checked伪类可用做选择器*/
+.warp input:checked + a,.warp input:checked:hover + a{background: #6D8299;color: #fff;}
+.warp input:checked + a:after{
+	content:"";width: 0;height: 0;border: 30px solid transparent;border-top-color:#6D8299; overflow: hidden;position: absolute;top: 100%;left: 50%;margin-left: -30px;
+}
+.warp input:hover + a{background: #A1B0C6;color: #fff;}
+
+/*nav 结束*/
+
+/*内容开始*/
+.warp_panel1,.panel1{width: 100%;height: 100%;position: relative;}
+.warp_panel1 h2{padding-top: 200px;margin: 0;font-size: 60px;text-shadow: 5px 5px 5px #B99EEE}
+.warp_panel1 {
+	text-align: center;left: 0;top: 0;
+	/*进行3d变换，将section的外层进行定义，到时直接改变其y值；3d变换可以开启手机的GPU加速*/
+	transform: translate3d(0,0,0);
+	-webkit-transform:translate3d(0,0,0);
+	-moz-transform:translate3d(0,0,0);
+	-o-transform:translate3d(0,0,0);
+	-ms-transform:translate3d(0,0,0);
+
+	-webkit-backface-visibility:hidden;
+	/*过度动画*/
+	transition:all 0.7s ease-in-out;
+	-webkit-transition:all 0.7s ease-in-out;
+	-moz-transition:all 0.7s ease-in-out;
+	-o-transition:all 0.7s ease-in-out;
+	-ms-transition:all 0.7s ease-in-out;
+
+
+}
+.panel1{background: #E1CACA;overflow: hidden;}
+.panel1_color{background: #A670E5;color: #fff;}
+/*点击切换，y轴位移*/
+#nav1:checked ~ .warp_panel1{
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-o-transform: translateY(0);
+	-ms-transform: translateY(0);
+}
+#nav2:checked ~ .warp_panel1{
+	transform: translateY(-100%);
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+}
+#nav3:checked ~ .warp_panel1{
+	transform: translateY(-200%);
+	-webkit-transform: translateY(-200%);
+	-moz-transform: translateY(-200%);
+	-o-transform: translateY(-200%);
+	-ms-transform: translateY(-200%);
+}
+#nav4:checked ~ .warp_panel1{
+	transform: translateY(-300%);
+	-webkit-transform: translateY(-300%);
+	-moz-transform: translateY(-300%);
+	-o-transform: translateY(-300%);
+	-ms-transform: translateY(-300%);
+}
+#nav5:checked ~ .warp_panel1{
+	transform: translateY(-400%);
+	-webkit-transform: translateY(-400%);
+	-moz-transform: translateY(-400%);
+	-o-transform: translateY(-400%);
+	-ms-transform: translateY(-400%);
+}
+/*中间变形框背景*/
+.panel1_bg{
+	width: 200px;height: 200px;background: #EEA9F2;position: absolute;left: 50%;top:0;margin: -60px 0 0 -100px;
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-transform:rotate(45deg);
+
+}
+/*web字体应用*/
+[data-ico]:after{
+	content:attr(data-ico);width: 200px;height: 200px;line-height: 200px;
+	font-size: 80px;text-align: center;display: block;position: absolute;left: 50%;top: 50%;margin: -50px 0 0 -50px;
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	-o-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+	-transform:rotate(-45deg);
+	color: #7B7D58;
+	font-family: 'raphaelicons-webfont';
+}
+/*点击切换页面后，h2的动画*/
+/*animation创建的动画不需要事件出发，transform动画需要事件出发（以上的因为在点击切换后才出发）*/
+#nav1:checked ~ .warp_panel1 #panel_1 h2,
+#nav2:checked ~ .warp_panel1 #panel_2 h2,
+#nav3:checked ~ .warp_panel1 #panel_3 h2,
+#nav4:checked ~ .warp_panel1 #panel_4 h2,
+#nav5:checked ~ .warp_panel1 #panel_5 h2
+{
+	animation:textmove 2s ease-in-out 0.2s backwards;
+	-webkit-animation:textmove 1.2s ease-in-out 0.2s backwards;
+	-moz-animation:textmove,1s,ease-in-out 0.2s backwards;
+	-o-animation:textmove,1s,ease-in-out 0.2s backwards;
+	-ms-animation:textmove,1s,ease-in-out 0.2s backwards;
+	
+}
+@keyframes textmove{
+	0%{transform: translateY(-40px);opacity: 0;}
+	100%{transform: translateY(0px);opacity: 1;}
+}
+@-webkit-keyframes textmove{
+	0%{-webkit-transform: translateY(-40px);opacity: 0;}
+	100%{-webkit-transform: translateY(0px);opacity: 1;}
+}
+@-moz-keyframes textmove{
+	0%{-moz-transform: translateY(-40px);opacity: 0;}
+	100%{-moz-transform: translateY(0px);opacity: 1;}
+}
+
+@-o-keyframes textmove{
+	0%{-o-transform: translateY(-40px);opacity: 0;}
+	100%{-o-transform: translateY(0px);opacity: 1;}
+}
+/*响应式设计*/
+@media screen and (max-width:520px ){
+	.warp h2{font-size: 40px;}
+	.warp > a{font-size: 14px;}
+}
+
+

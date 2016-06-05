@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 优先使用ie edge 和chorme浏览器 -->
+	<meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1"> 	
+	<!-- 优化移动设备的显示 宽度=设备宽度 默认缩放为1 -->
+	<meta name="viewport" content="width=device-width ,initial-scale=1">
+	<title>css3 页面平滑过度</title>
+	<!-- html5全局样式 -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css">  -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="warp">
+			<input type="radio" name="radio-set" checked="checked" id="nav1">
+			<a href="#panel_1">首页</a>
+			<input type="radio" name="radio-set"  id="nav2">
+			<a href="#panel_2">介绍</a>
+			<input type="radio" name="radio-set"  id="nav3">
+			<a href="#panel_3">产品</a>
+			<input type="radio" name="radio-set"  id="nav4">
+			<a href="#panel_4">合作</a>
+			<input type="radio" name="radio-set"  id="nav5">
+			<a href="#panel_6">联系</a>
+			<div class="warp_panel1">
+				<section class="panel1 panel1_color" id="panel_1">
+					<div class="panel1_bg" data-ico="1"></div>
+					<h2>首页</h2>
+				</section>
+				<section class="panel1 " id="panel_2">
+					<div class="panel1_bg" data-ico="2"></div>
+					<h2>介绍</h2>
+				</section>
+				<section class="panel1 panel1_color" id="panel_3">
+					<div class="panel1_bg" data-ico="3"></div>
+					<h2>产品</h2>
+				</section>
+				<section class="panel1 " id="panel_4">
+					<div class="panel1_bg" data-ico="4"></div>
+					<h2>合作</h2>
+				</section>
+				<section class="panel1 panel1_color" id="panel_5">
+					<div class="panel1_bg" data-ico="5"></div>
+					<h2>联系</h2>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
